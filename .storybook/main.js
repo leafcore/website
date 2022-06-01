@@ -1,6 +1,7 @@
 module.exports = {
   core: {
     builder: "webpack5",
+    disableTelemetry: true,
   },
   stories: ["../src/**/*.story.js"],
   addons: [
@@ -11,11 +12,7 @@ module.exports = {
     "@storybook/addon-toolbars",
     "@storybook/addon-viewport",
   ],
-  staticDirs: [
-    //{ from: '../foo/assets', to: '/assets' }
-    "../public",
-    "../static",
-  ],
+  staticDirs: ["../static"],
   webpackFinal: (config) => {
     // Prepare storybook for Gatsby
     config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/]
